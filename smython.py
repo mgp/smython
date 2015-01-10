@@ -37,7 +37,7 @@ class Smython(object):
     def make_request(self, methodname, parameters=None):
         # Ahh, this is interesting. You're referring to self.SESSION here, but because SESSION is in all-caps,
         # which made me think that it's a static/class-wide variable. But really each Smython instance can have its
-        # own session. Remove SESSION above, and in __init__, do "self.session = None". Then refer to "self.session".
+        # own session. Remove SESSION above, and in __init__, do "self._session = None". Then refer to "self._session".
         if not self.SESSION or not self._test_session(self.SESSION):
             self.SESSION = self._create_session()
 
